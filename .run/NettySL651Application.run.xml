@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="NettySL651Application" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="me.yuxiaoyao.sl651.netty.server.NettySL651Application" />
+    <module name="netty-server" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="me.yuxiaoyao.sl651.netty.server.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,0 +1,11 @@
+.idea
+.vs
+target/
+build/
+logs/
+.image/
+
+*.iml
+*.class
+*.jar
+*.log

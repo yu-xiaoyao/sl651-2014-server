@@ -1,0 +1,11 @@
+server:
+  port: 14444
+
+sl651:
+  port: 5555
+
+mqtt:
+  enabled: false
+  username: publicun
+  password: public
+  urls: tcp://127.0.0.1:1883
