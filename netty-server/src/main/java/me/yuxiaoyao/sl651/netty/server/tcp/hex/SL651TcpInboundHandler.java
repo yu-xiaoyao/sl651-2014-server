@@ -140,7 +140,7 @@ public class SL651TcpInboundHandler extends ChannelInboundHandlerAdapter {
         }
 
         boolean isM3Mode = isM3MultiPacket(packetStartCode);
-        var header = MessageHeader.builder()
+        MessageHeader header = MessageHeader.builder()
                 .startFrame(frameStart)
                 .stationId(stationId)
                 .telemetryId(telemetryId)
@@ -167,7 +167,7 @@ public class SL651TcpInboundHandler extends ChannelInboundHandlerAdapter {
                 m3Message = m3Packets.get(funcCode);
             }
             if (m3Message == null) {
-                m3Message = new M3Message(totalPacket);
+                m3Message = new M3Message(header, totalPacket);
                 // clear before
                 m3Packets.put(funcCode, m3Message);
             }
@@ -188,6 +188,8 @@ public class SL651TcpInboundHandler extends ChannelInboundHandlerAdapter {
                     return;
                 }
             }
+            // 获取当前 M3 包 Header
+            header = m3Message.getHeader();
             // 合并 M3 包
             bodyBuf = m3Message.getM3Body();
         } else {

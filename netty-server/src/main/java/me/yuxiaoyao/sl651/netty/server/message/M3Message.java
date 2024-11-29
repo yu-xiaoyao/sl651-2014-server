@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import me.yuxiaoyao.sl651.netty.server.header.MessageHeader;
 
 /**
  * @author kerryzhang on 2024/11/10
@@ -14,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 @Data
 @SuperBuilder
 public class M3Message {
-
+    private MessageHeader header;
     private int total;
     /**
      * seq as index
@@ -22,10 +23,12 @@ public class M3Message {
     private M3Payload[] payloads;
 
 
-    public M3Message(int total) {
+    public M3Message(MessageHeader header, int total) {
+        this.header = header;
         this.total = total;
-        this.payloads = new M3Payload[this.total];
+        this.payloads = new M3Payload[total];
     }
+
 
     public ByteBuf getM3Body() {
         ByteBuf buf = Unpooled.buffer();
